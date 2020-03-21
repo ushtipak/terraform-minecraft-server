@@ -15,7 +15,7 @@ resource "digitalocean_droplet" "minecraft_server" {
   provisioner "remote-exec" {
     inline = [
       "apt-get update -y",
-      "apt-get install default-jdk -y",
+      "apt-get install default-jdk rsync -y",
       "mkdir /opt/minecraft"
     ]
   }
@@ -33,6 +33,22 @@ resource "digitalocean_droplet" "minecraft_server" {
   provisioner "file" {
     source      = "minecraft/server.jar"
     destination = "/opt/minecraft/server.jar"
+  }
+
+  provisioner "local-exec" {
+    command = "./syncworld.sh ${digitalocean_droplet.minecraft_server.ipv4_address}"
+  }
+
+  provisioner "file" {
+    source      = "minecraft/minecraft.service"
+    destination = "/usr/lib/systemd/system/minecraft.service"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "systemctl daemon-reload",
+      "systemctl start minecraft.service"
+    ]
   }
 
 }
