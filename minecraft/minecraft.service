@@ -1,0 +1,12 @@
+[Unit]
+Description=Terraformed Minecraft Server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/minecraft/
+ExecStart=/usr/bin/screen -DmS server /usr/bin/java -Xmx1024M -Xms1024M -jar server.jar nogui
+ExecStop=/usr/bin/screen -p 0 -S server -X eval 'stuff "save-all"\\015'
+
+[Install]
+WantedBy=multi-user.target
