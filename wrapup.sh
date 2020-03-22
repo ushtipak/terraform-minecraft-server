@@ -33,7 +33,7 @@ echo "  ip [${ip}]"
 
 # invoke server stop and retrive saved world
 ssh "root@${ip}" "systemctl stop minecraft.service"
-/usr/bin/rsync -PHcuva "root@${ip}:/opt/minecraft/world" minecraft/world
+/usr/bin/rsync -PHcuva "root@${ip}:/opt/minecraft/world" minecraft
 
 echo "all done \o/"
 
