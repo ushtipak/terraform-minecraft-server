@@ -6,13 +6,16 @@ SERVER_VERSION="1.15.2"
 SERVER_URL="https://launcher.mojang.com/v1/objects/bb2b6b1aefcd70dfd1892149ac3a215f6c636b07/server.jar"
 
 
-# # fetch server (www.minecraft.net/en-us/download/server/)
+# fetch server (www.minecraft.net/en-us/download/server/)
 echo "> retrieve server [${SERVER_VERSION}]"
 wget -q "${SERVER_URL}" -O "minecraft/server.jar"
 
-# # retrieve digitalocean terraform provider
+# retrieve digitalocean terraform provider
 echo "> initialize terraform"
 terraform init
+
+# create `saves` to archive worlds
+mkdir saves
 
 cat << 'EOT'
 
