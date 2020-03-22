@@ -4,7 +4,7 @@
 
 [[ $# != 1 ]] && exit 1
 
-if [[ -d minecraft/world ]];
-	then /usr/bin/rsync -PHcuva minecraft/world root@${1}:/opt/minecraft/
+if [[ -d minecraft/world ]]; then
+  /usr/bin/rsync -PHcuva minecraft/world root@${1}:/opt/minecraft/
 fi
 
