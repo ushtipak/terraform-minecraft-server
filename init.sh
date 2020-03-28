@@ -21,12 +21,12 @@ cat << 'EOT'
 
 > usage
 
-echo export DO_PAT="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-terraform apply                            \
-  -var "do_token=${DO_PAT}"                \
-  -var "pub_key=$HOME/.ssh/XXXXXXXXXX.pub" \
-  -var "pvt_key=$HOME/.ssh/XXXXXXXXXX"     \
-  -var "ssh_fingerprint=XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX"
+echo export DO_PAT="XXXXXXXXXXXXXXXXXXXXXXXXX"
+terraform apply                             \
+  -var "do_token=${DO_PAT}"                 \
+  -var "pub_key=$HOME/.ssh/XXXXXXXXXX.pub"  \
+  -var "pvt_key=$HOME/.ssh/XXXXXXXXXX"      \
+  -var "ssh_fingerprint=XX:XX:XX:XX:XX:XX:XX"
 
 EOT
 
