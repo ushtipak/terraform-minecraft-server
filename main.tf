@@ -1,6 +1,6 @@
-resource "digitalocean_droplet" "minecraft_server" {
+resource "digitalocean_droplet" "minecraft" {
   image    = "debian-10-x64"
-  name     = "minecraft-server"
+  name     = "minecraft"
   region   = "fra1"
   size     = "2gb"
   ssh_keys = ["${var.ssh_fingerprint}"]
@@ -36,7 +36,7 @@ resource "digitalocean_droplet" "minecraft_server" {
   }
 
   provisioner "local-exec" {
-    command = "./syncworld.sh ${digitalocean_droplet.minecraft_server.ipv4_address}"
+    command = "./syncworld.sh ${digitalocean_droplet.minecraft.ipv4_address}"
   }
 
   provisioner "file" {
