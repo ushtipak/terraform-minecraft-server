@@ -1,4 +1,4 @@
-output "minecraft-server" {
-  value = digitalocean_droplet.minecraft_server.ipv4_address
+output "minecraft" {
+  value = digitalocean_droplet.minecraft.ipv4_address
 }
 
