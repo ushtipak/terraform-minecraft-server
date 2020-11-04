@@ -51,5 +51,9 @@ resource "digitalocean_droplet" "minecraft" {
     ]
   }
 
+  provisioner "local-exec" {
+    command = "./mapdns"
+  }
+
 }
 
