@@ -2,8 +2,8 @@
 #
 # Retrieve minecraft-server package, initialize Terraform
 
-SERVER_VERSION="1.15.2"
-SERVER_URL="https://launcher.mojang.com/v1/objects/bb2b6b1aefcd70dfd1892149ac3a215f6c636b07/server.jar"
+SERVER_VERSION="1.16.4"
+SERVER_URL="https://launcher.mojang.com/v1/objects/35139deedbd5182953cf1caa23835da59ca3d7cd/server.jar"
 
 
 # fetch server (www.minecraft.net/en-us/download/server/)
