@@ -15,7 +15,7 @@ resource "digitalocean_droplet" "minecraft" {
   provisioner "remote-exec" {
     inline = [
       "apt-get update -y",
-      "apt-get install default-jdk rsync -y",
+      "apt-get install openjdk-17-jdk rsync -y",
       "mkdir /opt/minecraft"
     ]
   }
