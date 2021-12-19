@@ -1,8 +1,8 @@
 resource "digitalocean_droplet" "minecraft" {
-  image    = "debian-10-x64"
+  image    = "debian-11-x64"
   name     = "minecraft"
   region   = "fra1"
-  size     = "2gb"
+  size     = "s-1vcpu-2gb-amd"
   ssh_keys = ["${var.ssh_fingerprint}"]
 
   connection {

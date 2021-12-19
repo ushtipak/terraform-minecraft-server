@@ -16,7 +16,8 @@ type Droplet struct {
 	Name     string `json:"name"`
 	Networks struct {
 		V4 []struct {
-			IP string `json:"ip_address"`
+			IP   string `json:"ip_address"`
+			Type string `json:"type"`
 		} `json:"v4"`
 	} `json:"networks"`
 }
@@ -63,7 +64,11 @@ func getTargetIP(droplets Droplets, target string) (ip string) {
 
 	for _, droplet := range droplets.Droplets {
 		if droplet.Name == target {
-			ip = droplet.Networks.V4[1].IP
+			for _, network := range droplet.Networks.V4 {
+				if network.Type == "public" {
+					ip = network.IP
+				}
+			}
 		}
 	}
 
